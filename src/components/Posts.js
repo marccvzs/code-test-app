@@ -7,13 +7,11 @@ import { ListGroup } from 'reactstrap';
 function Posts() {
     const dispatch = useDispatch();
     const posts = useSelector(state => state.posts.posts);
+    const loading = useSelector(state => state.posts.loading);
+    const error = useSelector(state => state.posts.error)
 
     useEffect(() => {
-        dispatch(getPosts([{
-            id: 1,
-            title: "The best title",
-            body: "The best body test",
-        }]))
+        dispatch(getPosts())
     }, [])
 
     const postsList = posts.map(post => {
