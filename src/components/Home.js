@@ -7,11 +7,13 @@ import { Link } from 'react-router-dom';
 function Home() {
     const [title, setTitle] = useState('');
     const dispatch = useDispatch();
-    const posts = useSelector(state => state.posts.posts);
+    const posts = useSelector(state => state.posts.posts.data);
 
     useEffect(() => {
         dispatch(getPosts());
     }, [])
+
+    console.log(posts.data)
 
     function handleClick() {
 
@@ -21,7 +23,7 @@ function Home() {
         return post.title.toLowerCase().includes(title.toLowerCase())
     }).map(post => {
         return (
-            <div onClick={handleClick}>
+            <div onClick={handleClick} key={post.id}>
                 <Card>
                     <CardGroup className="m-1 border p-1 flex">
                         <Label className="m-1">

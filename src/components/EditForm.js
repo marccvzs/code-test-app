@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
 
 function EditForm({ post }) {
@@ -17,8 +18,17 @@ function EditForm({ post }) {
             [name]: value
         })
     }
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        
+        setFormData({
+            title: '',
+            body: '',
+        })
+    }
   return (
-    <Form>
+    <Form onSubmit={handleSubmit}>
         <FormGroup>
             <Label>Title:</Label>
             <Input placeholder={title} value={formData.title} name="title" onChange={handleChange}/>
