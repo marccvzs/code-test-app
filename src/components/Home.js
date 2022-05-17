@@ -13,8 +13,6 @@ function Home() {
         dispatch(getPosts());
     }, [])
 
-    console.log(posts.data)
-
     function handleClick() {
 
     }

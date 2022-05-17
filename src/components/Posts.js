@@ -7,8 +7,8 @@ import { ListGroup } from 'reactstrap';
 function Posts() {
     const dispatch = useDispatch();
     const posts = useSelector(state => state.posts.posts.data);
-    const loading = useSelector(state => state.posts.loading);
-    const error = useSelector(state => state.posts.error)
+    // const loading = useSelector(state => state.posts.loading);
+    // const error = useSelector(state => state.posts.error)
 
     useEffect(() => {
         dispatch(getPosts())
