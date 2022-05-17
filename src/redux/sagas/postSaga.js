@@ -1,23 +1,11 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
 import * as api from '../../api/posts';
 
-// const apiUrl = "https://jsonplaceholder.typicode.com/posts";
-
-// function getApi() {
-//     return fetch(apiUrl, {
-//         method: "GET",
-//         headers: {
-//             'Content-Type': 'applicaton/json',
-//         }
-//     }).then(r => r.json())
-//     .catch((e) => { throw e })
-// }
-
-function* fetchPosts(action) {
+function* fetchPosts() {
     try{ 
         const posts = yield call(api.getPosts);
-        console.log(posts)
-        yield put({ type: 'GET_POSTS_SUCCESS', posts: posts });
+        console.log(posts.data);
+        yield put({ type: 'GET_POSTS_SUCCESS', posts: posts.data });
     } catch(e) {
         yield put({ type: 'GET_POSTS_FAILED', message: e.message });
     }

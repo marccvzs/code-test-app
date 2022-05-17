@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 function Home() {
     const [title, setTitle] = useState('');
     const dispatch = useDispatch();
-    const posts = useSelector(state => state.posts.posts.data);
+    const posts = useSelector(state => state.posts.posts);
 
     useEffect(() => {
         dispatch(getPosts());
