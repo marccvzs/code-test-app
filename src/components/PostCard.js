@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ListGroupItem, Button, Label } from 'reactstrap';
+import EditForm from './EditForm';
 
 function PostCard({ post }) {
     const { title, body } = post
+    const [toggleEdit, setToggleEdit] = useState(false);
+
+    function handleEdit() {
+      setToggleEdit(toggleEdit => !toggleEdit);
+    }
   return (
     <ListGroupItem>
         <section style={{ display: 'flex' }}>
@@ -11,8 +17,9 @@ function PostCard({ post }) {
                 <h5>{title}</h5>
                 <Label>Body: </Label>
                 <p>{body}</p>
-                <Button color="primary">Edit</Button>
+                <Button color="primary" onClick={handleEdit}>Edit</Button>
             </div>
+            {toggleEdit ? <EditForm post={post} /> : null}
         </section>
     </ListGroupItem>
   )
