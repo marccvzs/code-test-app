@@ -8,6 +8,7 @@ function EditForm({ post }) {
         title,
         body
     });
+    const dispatch = useDispatch();
 
     function handleChange(e) {
         const name = e.target.name;
@@ -27,6 +28,7 @@ function EditForm({ post }) {
             body: '',
         })
     }
+
   return (
     <Form onSubmit={handleSubmit}>
         <FormGroup>
@@ -42,4 +44,4 @@ function EditForm({ post }) {
   )
 }
 
-export default EditForm
+export default EditForm;

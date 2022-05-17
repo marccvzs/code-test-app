@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { ListGroupItem, Button, Label } from 'reactstrap';
 import EditForm from './EditForm';
 
@@ -7,8 +8,10 @@ function PostCard({ post }) {
     const [toggleEdit, setToggleEdit] = useState(false);
 
     function handleEdit() {
+
       setToggleEdit(toggleEdit => !toggleEdit);
     }
+
   return (
     <ListGroupItem>
         <section style={{ display: 'flex' }}>

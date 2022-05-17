@@ -13,21 +13,23 @@ function Home() {
         dispatch(getPosts());
     }, [])
 
-    function handleClick() {
-
+    function handleClick(id) {
+        console.log(id);
+        <Link to={`/posts/${id}`}>See Post</Link>
     }
     
     const searchedTitle = posts.filter(post => {
         return post.title.toLowerCase().includes(title.toLowerCase())
     }).map(post => {
         return (
-            <div onClick={handleClick} key={post.id}>
+            <div  key={post.id}>
                 <Card>
                     <CardGroup className="m-1 border p-1 flex">
                         <Label className="m-1">
                             Title:
                         </Label>
                         <h4 style={{margin: '1px'}}>{post.title}</h4>
+                        <Link to={`/posts/${post.id}`}>See Post</Link>
                     </CardGroup>
                 </Card>
             </div>
